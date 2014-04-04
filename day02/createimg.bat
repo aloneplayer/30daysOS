@@ -1,0 +1,1 @@
+..\_tools\edimg imgin:..\_tools\empty.tek wbinimg src:hhos.bin len:512 from:0 to:0 imgout:hhos.img
