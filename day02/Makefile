@@ -1,4 +1,4 @@
-TOOLPATH = ..\\_tools\\
+TOOLPATH = ..\_tools\
 MAKE     = $(TOOLPATH)make.exe
 NASK     = $(TOOLPATH)nask.exe
 
