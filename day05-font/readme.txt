@@ -1,1 +1,2 @@
-Using color palette.
+Using font file
+display string
