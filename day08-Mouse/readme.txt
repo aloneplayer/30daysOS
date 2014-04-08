@@ -1,8 +1,12 @@
 New-----------
-Read mouse data and reflactor
+Using new data struct  MOUSE_DEC 
+Parse mouse data to X, Y and Button
 
 
 Done-----------
+Read mouse data and reflactor
+
+
 Add mosue control into int.c
 
 
