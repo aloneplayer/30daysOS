@@ -28,9 +28,9 @@ struct FIFO8 keyfifo;
 // For keyboard
 void inthandler21(int *esp)
 {
-	unsigned char data;
+    unsigned char data;
     io_out8(PIC0_OCW2, 0x61);	/*Notify IRQ-01 was handled */
-	data = io_in8(PORT_KEYDAT);
+    data = io_in8(PORT_KEYDAT);
     fifo8_put(&keyfifo, data);
     
     return;
@@ -40,12 +40,12 @@ void inthandler21(int *esp)
 struct FIFO8 mousefifo;
 void inthandler2c(int *esp)
 {
-	unsigned char data;
+    unsigned char data;
     io_out8(PIC1_OCW2, 0x64);	/*Notify IRQ-12 (No.4 in PIC 1)was handled */
     io_out8(PIC0_OCW2, 0x62);	/*Notify IRQ-02 was handled */
 
     data = io_in8(PORT_KEYDAT);
-	fifo8_put(&mousefifo, data);
+    fifo8_put(&mousefifo, data);
 }
 
 void inthandler27(int *esp)
