@@ -41,7 +41,7 @@ struct FIFO8 mousefifo;
 void inthandler2c(int *esp)
 {
 	unsigned char data;
-   	io_out8(PIC0_OCW2, 0x64);	/*Notify IRQ-12 (No.4 in PIC 1)was handled */
+   	io_out8(PIC1_OCW2, 0x64);	/*Notify IRQ-12 (No.4 in PIC 1)was handled */
     io_out8(PIC0_OCW2, 0x62);	/*Notify IRQ-02 was handled */
 
     data = io_in8(PORT_KEYDAT);
