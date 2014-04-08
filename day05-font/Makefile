@@ -1,12 +1,15 @@
 TOOLPATH = ../_tools/
+INCPATH  = .
 
 MAKE     = $(TOOLPATH)make.exe
 NASK     = $(TOOLPATH)nask.exe
-CC1      = $(TOOLPATH)cc1.exe -Os -Wall -quiet
+CC1      = $(TOOLPATH)cc1.exe -I$(INCPATH) -Os -Wall -quiet
 GAS2NASK = $(TOOLPATH)gas2nask.exe -a
 OBJ2BIM  = $(TOOLPATH)obj2bim.exe
-BIM2HRB  = $(TOOLPATH)bim2hrb.exe
+BIN2OBJ  = $(TOOLPATH)bin2obj.exe
+MAKEFONT = $(TOOLPATH)makefont.exe
 RULEFILE = $(TOOLPATH)haribote/haribote.rul
+BIM2HRB  = $(TOOLPATH)bim2hrb.exe
 EDIMG    = $(TOOLPATH)edimg.exe
 
 
@@ -31,8 +34,14 @@ bootpack.obj: bootpack.nas Makefile
 naskfunc.obj : naskfunc.nas Makefile
 	$(NASK) naskfunc.nas naskfunc.obj naskfunc.lst
     
-bootpack.bim: bootpack.obj naskfunc.obj Makefile
-	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map bootpack.obj naskfunc.obj
+hankaku.bin : hankaku.txt Makefile
+	$(MAKEFONT) hankaku.txt hankaku.bin
+
+hankaku.obj : hankaku.bin Makefile
+	$(BIN2OBJ) hankaku.bin hankaku.obj _hankaku
+
+bootpack.bim: bootpack.obj naskfunc.obj hankaku.obj Makefile
+	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map bootpack.obj naskfunc.obj hankaku.obj
 
 bootpack.hrb : bootpack.bim Makefile
 	$(BIM2HRB) bootpack.bim bootpack.hrb 0
