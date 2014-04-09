@@ -21,7 +21,7 @@ void HariMain(void)
     
 	init_gdtidt();
 	init_pic();
-    // Set IF (interrupt flag to 1)
+    // Set IF (interrupt flag to 1) to enable INT
     io_sti();
     
     init_palette();
@@ -34,7 +34,7 @@ void HariMain(void)
 	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 0, COL8_FFFFFF, s);
     
     io_out8(PIC0_IMR, 0xf9); /* (11111001) Open IRQ 1 (keyboard) and IRQ 2 (connect to PIC 1)   */
-	io_out8(PIC1_IMR, 0xef); /* (11101111) Open IRQ 12 */
+	io_out8(PIC1_IMR, 0xef); /* (11101111) Open IRQ 12 for mouse*/
 
     //--keyboard
     char keybuf[32];
