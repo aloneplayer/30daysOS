@@ -1,4 +1,9 @@
 New-----------
+
+Create window. Modify bootpack.c
+
+Done-----------
+
 Handle the mouse out of sceen.
 	modify bootpack.c
 	modify sheet_refreshsub() in sheet.c
@@ -7,7 +12,6 @@ Refactor sheet.c.
 	remove prameter "struct SHTCTL *ctl" from functions
 	Modify sheet.c bootpack.h bootpack.c
 
-Done-----------
 
 Layer management
 	Add sheet.c
