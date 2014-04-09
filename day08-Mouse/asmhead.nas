@@ -135,7 +135,7 @@ memcpy:
 GDT0:
 		RESB	8				; GDT0 NULL selector
 		DW		0xffff,0x0000,0x9200,0x00cf	; GDT1 readable segment 32bit
-		DW		0xffff,0x0000,0x9a28,0x0047	; GDT2executable segment 32bit£¨bootpack use it£©
+		DW		0xffff,0x0000,0x9a28,0x0047	; GDT2 executable segment 32bit£¨bootpack use it£©
 
 		DW		0
 GDTR0:
