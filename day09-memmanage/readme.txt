@@ -1,7 +1,13 @@
 New-----------
-Refactor: add mouse.c and keyboard.c Modify Makefile
+Memory Management
 
 Done-----------
+
+Get memeory size
+
+Refactor: add mouse.c and keyboard.c Modify Makefile
+
+
 Using new data struct  MOUSE_DEC 
 Parse mouse data to X, Y and Button
 
