@@ -5,7 +5,7 @@ void make_window8(unsigned char *buf, int xsize, int ysize, char *title);
 
 void HariMain(void)
 {
-	struct BOOTINFO *binfo = (struct BOOTINFO *) 0x0ff0;
+	struct BOOTINFO *binfo = (struct BOOTINFO *) ADR_BOOTINFO;
 	char s[40], mcursor[256];
 	int mx, my, i;
     
@@ -34,7 +34,7 @@ void HariMain(void)
 	sprintf(s, "(%d, %d)", mx, my);
 	putfonts8_asc(binfo->vram, binfo->scrnx, 0, 0, COL8_FFFFFF, s);
     
-    io_out8(PIC0_IMR, 0xf9); /* (11111001) Open IRQ 1 (keyboard) and IRQ 2 (connect to PIC 1)   */
+    io_out8(PIC0_IMR, 0xf8); /* (11111000) Open IRQ0(timer),IRQ1(keyboard) and IRQ2 connect to PIC1)*/
 	io_out8(PIC1_IMR, 0xef); /* (11101111) Open IRQ 12 for mouse*/
 
     //--PIT (timer)
