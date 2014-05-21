@@ -1,0 +1,9 @@
+del *.bin
+del *.lst
+del *.img
+del *.gas
+del *.obj
+del bootpack.nas
+del bootpack.map
+del bootpack.bim
+del bootpack.hrb
